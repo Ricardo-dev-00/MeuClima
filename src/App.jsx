@@ -27,7 +27,7 @@ function App() {
         } else if (parsed.type === "coords" && parsed.value) {
           handleCoords(parsed.value.lat, parsed.value.lon, true);
         }
-      } catch (e) {
+      } catch {
         // bloco vazio removido
       }
     }
@@ -42,8 +42,8 @@ function App() {
       const f = await fetchForecastByCity(city);
       setForecast(f);
       localStorage.setItem("lastLocation", JSON.stringify({ type: "city", value: city }));
-    } catch (err) {
-      setError(err.message);
+    } catch {
+      setError("Erro ao buscar clima");
       setWeather(null);
       setForecast([]);
     } finally {
@@ -60,7 +60,7 @@ function App() {
       const f = await fetchForecastByCity(w.name);
       setForecast(f);
       localStorage.setItem("lastLocation", JSON.stringify({ type: "coords", value: { lat, lon } }));
-    } catch (err) {
+    } catch {
       setError("Erro ao buscar clima por localização");
       setWeather(null);
       setForecast([]);
