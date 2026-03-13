@@ -1,0 +1,7 @@
+# Ignore tudo exceto dist para publicação
+/*
+!dist/
+!dist/index.html
+!dist/assets/
+!dist/favicon.svg
+!dist/icons.svg
