@@ -27,7 +27,9 @@ function App() {
         } else if (parsed.type === "coords" && parsed.value) {
           handleCoords(parsed.value.lat, parsed.value.lon, true);
         }
-      } catch {}
+      } catch (e) {
+        // bloco vazio removido
+      }
     }
   }, []);
 
@@ -92,13 +94,13 @@ function App() {
     { icon: "☁️", title: "Nuvens", value: weather.clouds !== undefined ? weather.clouds + "%" : "-" },
     { icon: "🔆", title: "Índice UV", value: weather.uv !== undefined ? weather.uv : "-" },
   ] : [];
-  const hours = forecast.slice(0, 5).map((f, idx) => ({
+  const hours = forecast.slice(0, 5).map(f => ({
     time: f.date,
     icon: f.icon,
     temp: f.temp_max,
     description: f.description,
   }));
-  const days = forecast.map((f, idx) => ({
+  const days = forecast.map(f => ({
     date: f.date,
     label: f.date,
     icon: f.icon,
