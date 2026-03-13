@@ -9,7 +9,7 @@ export default function HourlyForecast({ hours }) {
             <span className="text-xs md:text-base">{h.time}</span>
             <span className="flex items-center gap-2">
               <img src={`https://www.weatherbit.io/static/img/icons/${h.icon}.png`} alt={h.description} className="w-5 h-5 md:w-6 md:h-6" />
-              <span className="font-bold text-xs md:text-base">{h.temp}\u00b0C</span>
+              <span className="font-bold text-xs md:text-base">{String(h.temp).replace('\\u00b0', '°')}°C</span>
             </span>
           </li>
         ))}

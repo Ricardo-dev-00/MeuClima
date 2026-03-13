@@ -1,29 +1,13 @@
-import { useState } from "react";
 
-export default function Navbar({ onSearch, onGeolocate, loading }) {
-  const [city, setCity] = useState("");
+
+export default function Navbar({ onGeolocate }) {
   return (
     <nav className="w-full flex flex-wrap items-center justify-between px-3 md:px-8 py-2 md:py-4 bg-transparent mb-4 md:mb-8 gap-2">
       <div className="flex items-center gap-1 md:gap-2">
         <span className="text-xl md:text-2xl">☁</span>
-        <span className="text-white text-lg md:text-xl font-bold tracking-wide">weather</span>
+        <span className="text-white text-lg md:text-xl font-bold tracking-wide">ClimaHub</span>
       </div>
-      <form
-        onSubmit={e => { e.preventDefault(); if (city.trim()) onSearch(city); }}
-        className="flex-1 flex justify-center min-w-[180px]"
-      >
-        <div className="relative w-full max-w-[220px] md:max-w-md">
-          <input
-            type="text"
-            className="w-full py-2 md:py-3 pl-10 md:pl-12 pr-2 md:pr-4 rounded-xl bg-[#1e293b] text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 text-base md:text-lg shadow"
-            placeholder="Search city..."
-            value={city}
-            onChange={e => setCity(e.target.value)}
-            disabled={loading}
-          />
-          <span className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg md:text-xl">🔍</span>
-        </div>
-      </form>
+      {/* Campo de busca removido, SearchBar com autocomplete está na interface principal */}
       <div className="flex items-center gap-1 md:gap-2 mt-2 md:mt-0">
         <button
           onClick={onGeolocate}
@@ -32,14 +16,8 @@ export default function Navbar({ onSearch, onGeolocate, loading }) {
         >
           <span>📍</span>
         </button>
-        <button
-          className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#334155] text-white rounded-lg hover:bg-sky-500 transition"
-          title="Modo claro/escuro"
-        >
-          <span>🌙</span>
-        </button>
         <a
-          href="https://github.com/seu-usuario/seu-repo" // Substitua pelo link real
+          href="https://github.com/Ricardo-dev-00/MeuClima" // Substitua pelo link real
           target="_blank"
           rel="noopener noreferrer"
           className="ml-2 md:ml-4 px-2 md:px-4 py-1 md:py-2 bg-white text-black rounded-xl font-semibold hover:bg-sky-200 transition flex items-center gap-1 md:gap-2 text-xs md:text-base"

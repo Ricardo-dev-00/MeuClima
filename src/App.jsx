@@ -111,6 +111,9 @@ function App() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-[#0f172a] to-[#020617] transition-colors duration-300">
       <Navbar onSearch={handleSearch} onGeolocate={handleGeolocate} loading={loading} />
+      <div className="flex justify-center mt-2 mb-4 px-3 sm:px-0">
+        <SearchBar onSearch={handleSearch} loading={loading} />
+      </div>
       <main className="max-w-[1200px] mx-auto p-6 md:p-10 rounded-3xl bg-[#0f172a]/80 shadow-lg mt-6">
         {loading && <Loading />}
         {error && <div className="text-red-400 text-center mb-4">{error}</div>}
