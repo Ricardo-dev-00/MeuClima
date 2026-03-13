@@ -65,4 +65,4 @@ O projeto utiliza CI/CD com GitHub Actions:
 Se tiver dúvidas ou problemas com o deploy, consulte os logs do GitHub Actions ou peça ajuda!
 
 ---
-Desenvolvido por [Seu Nome].
+Desenvolvido por Ricardo Vieira.
