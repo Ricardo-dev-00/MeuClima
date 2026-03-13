@@ -10,8 +10,9 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
@@ -29,27 +30,7 @@ jobs:
 
       - name: Criar arquivo .env
         run: echo "VITE_WEATHERBIT_API_KEY=${{ secrets.VITE_WEATHERBIT_API_KEY }}" > .env
-      - name: Build do projeto
-        run: npm run build
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-
-      - name: Instalar dependências
-        run: npm install
-
-      - name: Criar arquivo .env
-        run: echo "VITE_WEATHERBIT_API_KEY=${{ secrets.VITE_WEATHERBIT_API_KEY }}" > .env
       - name: Build do projeto
         run: npm run build
 
