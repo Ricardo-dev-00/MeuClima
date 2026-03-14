@@ -16,7 +16,7 @@ export default function NextDays({ days, activeDay, setActiveDay }) {
 
   return (
     <section className="mb-10">
-      <h2 className="text-white text-2xl font-bold mb-6">Next 5 Days</h2>
+      <h2 className="text-white text-2xl font-bold mb-6">Próximos 5 Dias</h2>
       <div className="flex gap-1 md:gap-2 mb-2 md:mb-4 items-center w-full overflow-x-auto">
         {isMobile && (
           <button
@@ -32,7 +32,7 @@ export default function NextDays({ days, activeDay, setActiveDay }) {
           className={`px-2 md:px-4 py-1 md:py-2 rounded-lg font-semibold text-xs md:text-base transition ${activeDay === 'all' ? 'bg-sky-400 text-white' : 'bg-[#334155] text-gray-200 hover:bg-sky-500'}`}
           onClick={() => setActiveDay('all')}
         >
-          All Days
+          Todos os Dias
         </button>
         {visibleDays.map(d => (
           <button

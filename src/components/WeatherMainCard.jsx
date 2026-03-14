@@ -1,3 +1,16 @@
+// Função para traduzir nomes de dias e meses
+function traduzirData(data) {
+  const dias = {
+    'Monday': 'Segunda-feira', 'Tuesday': 'Terça-feira', 'Wednesday': 'Quarta-feira', 'Thursday': 'Quinta-feira', 'Friday': 'Sexta-feira', 'Saturday': 'Sábado', 'Sunday': 'Domingo'
+  };
+  const meses = {
+    'January': 'Janeiro', 'February': 'Fevereiro', 'March': 'Março', 'April': 'Abril', 'May': 'Maio', 'June': 'Junho', 'July': 'Julho', 'August': 'Agosto', 'September': 'Setembro', 'October': 'Outubro', 'November': 'Novembro', 'December': 'Dezembro'
+  };
+  let traduzido = data;
+  Object.entries(dias).forEach(([en, pt]) => { traduzido = traduzido.replace(en, pt); });
+  Object.entries(meses).forEach(([en, pt]) => { traduzido = traduzido.replace(en, pt); });
+  return traduzido;
+}
 // Card principal do clima atual
 export default function WeatherMainCard({ weather, dateInfo }) {
   return (
@@ -6,7 +19,7 @@ export default function WeatherMainCard({ weather, dateInfo }) {
       <div className="text-5xl md:text-6xl font-bold text-white mb-2">{weather.temp}°C</div>
       <div className="text-lg md:text-xl text-sky-300 mb-2">{weather.description}</div>
       <div className="text-gray-300 mt-2 text-base md:text-lg">{weather.name}</div>
-      <div className="text-gray-400 text-sm md:text-base">{dateInfo}</div>
+      <div className="text-gray-400 text-sm md:text-base">{traduzirData(dateInfo)}</div>
     </div>
   );
 }
